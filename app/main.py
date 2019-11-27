@@ -50,10 +50,10 @@ def main_page():
 #     return str(len(descartes_wordsets))
     return render_template('text-search.html')
 
-# Method that gets input from user and returns strings found from text
-# @app.route('/', methods=['POST'])
-# def get_text():
+## Method that gets input from user and returns strings found from text
+#@app.route('/', methods=['POST'])
+#def get_text():
 
-# UNCOMMENT FOR LOCAL RUN ONLY
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+## UNCOMMENT FOR LOCAL RUN ONLY
+#if __name__ == '__main__':
+#    app.run(host='127.0.0.1', port=8080, debug=True)
