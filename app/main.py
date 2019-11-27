@@ -48,7 +48,7 @@ def text_search(phrase):
 @app.route('/')
 def main_page():
 #     return str(len(descartes_wordsets))
-    render_template('home.html')
+    return render_template('text-search.html')
 
 # Method that gets input from user and returns strings found from text
 # @app.route('/', methods=['POST'])
