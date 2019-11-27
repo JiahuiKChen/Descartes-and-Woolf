@@ -47,13 +47,13 @@ def text_search(phrase):
         
 @app.route('/')
 def main_page():
-    return str(len(descartes_wordsets))
-#     render_template('home.html')
+#     return str(len(descartes_wordsets))
+    render_template('home.html')
 
 # Method that gets input from user and returns strings found from text
 # @app.route('/', methods=['POST'])
 # def get_text():
-    
-# if __name__ == '__main__':
-#     # This is used when running locally only. When deploying to Google App
-#     app.run(host='127.0.0.1', port=8080, debug=True)
+
+# UNCOMMENT FOR LOCAL RUN ONLY
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True)
