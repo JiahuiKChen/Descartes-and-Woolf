@@ -54,6 +54,6 @@ def main_page():
 #@app.route('/', methods=['POST'])
 #def get_text():
 
-## UNCOMMENT FOR LOCAL RUN ONLY
-#if __name__ == '__main__':
-#    app.run(host='127.0.0.1', port=8080, debug=True)
+# UNCOMMENT FOR LOCAL RUN ONLY
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True)
