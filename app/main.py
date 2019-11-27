@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+import pickle
 
 app = Flask(__name__)
 
@@ -8,19 +9,15 @@ app = Flask(__name__)
 text_dicts_dir = "AuthorTextDicts/"
 with open(text_dicts_dir + "Woolf-Sentences.pickle", 'rb') as woolf_file:
     woolf_sentences = pickle.load(woolf_file)
-    print(len(woolf_sentences))
     
 with open(text_dicts_dir + "Woolf-WordSets.pickle", 'rb') as woolf_file:
     woolf_wordsets = pickle.load(woolf_file)
-    print(len(woolf_wordsets))
     
 with open(text_dicts_dir + "Descartes-Sentences.pickle", 'rb') as d_file:
     descartes_sentences = pickle.load(d_file)
-    print(len(descartes_sentences))
     
 with open(text_dicts_dir + "Descartes-WordSets.pickle", 'rb') as d_file:
     descartes_wordsets = pickle.load(d_file)
-    print(len(descartes_wordsets))
 
     
 def get_author_sentences(phrase, wordsets, sentences):   
@@ -50,4 +47,9 @@ def text_search(phrase):
         
 @app.route('/')
 def main_page():
-    render_template('home.html')
+    return str(len(descartes_wordsets))
+#     render_template('home.html')
+    
+if __name__ == '__main__':
+    # This is used when running locally only. When deploying to Google App
+    app.run(host='127.0.0.1', port=8080, debug=True)
