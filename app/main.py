@@ -28,8 +28,8 @@ def get_author_sentences(phrase, wordsets, sentences):
 
     for s_id in found_ids:
         found_sentences.append(sentences[s_id])
-    # result_str = "\n\n".join(found_sentences)
-    result_str = "<br><br>".join(found_sentences)
+    result_str = "\n\n".join(found_sentences)
+    # result_str = "<br><br>".join(found_sentences)
     return result_str
 
 # Searches for an input phrase, returns sentences found from each author (as one big string each)
@@ -47,7 +47,7 @@ def text_search(phrase):
         woolf_result = "None of Woolf's writing contains this phrase..."
     if len(descartes_result) == 0:
         descartes_result = "None of Descartes' writing contains this phrase..."
-    return descartes_result, woolf_result
+    return descartes_result, woolf_result      
 
 
 @app.route('/')
@@ -60,7 +60,6 @@ def main_page():
 def get_results():
     search_input = request.form['text-input']
     descartes_result, woolf_result = text_search(search_input)
-    # return descartes_result
     return render_template('text-results.html', descartes_result=descartes_result,
         woolf_result=woolf_result)
 

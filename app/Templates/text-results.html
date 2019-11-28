@@ -2,17 +2,18 @@
 
 {% extends "base.html" %}
 {% block body %}
-<h2>Search The Text of DesCartes and Woolf</h2>
-<p class="lead">A work in progress...</p>
+<h2>Search Results from Descartes and Woolf's Works:</h2>
 <div class="container">
   <div class="row">
       <div class="panel panel-default">
         <div class="panel-heading">Results from Descartes' Writings:</div>
-        <div class="panel-body" style="min-height: 1000; max-height: 1000; overflow-y: scroll;">{{ descartes_result }}</div>
+        <div class="pre-scrollable">
+          {{ descartes_result }}
+        </div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Results from Woolf's Writings:</div>
-        <div class="panel-body" style="min-height: 1000; max-height: 1000; overflow-y: scroll;">{{ woolf_result }}</div>
+        <div class="pre-scrollable">{{ woolf_result }}</div>
       </div>
   </div>
 </div>
