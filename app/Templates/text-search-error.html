@@ -1,0 +1,22 @@
+<!-- text-search-error.html-->
+
+{% extends "base.html" %}
+{% block body %}
+<div class="jumbotron">
+  <h1 class="display-4">Search The Text of DesCartes and Woolf</h1>
+  <p class="lead">A work in progress...</p>
+  <div class="container">
+    <hr class="my-4">
+    <form method="POST">
+      <div class="form-group">
+        <label for="text-input">Word or Phrase to Search For:</label>
+        <input type="text" class="form-control" name="text-input" aria-describedby="text-help" placeholder="Enter Text!">
+        <small class="form-text ">{{ issue }}</small>
+        <br>
+        <small id="text-help" class="form-text text-muted">Enter a word or phrase to search through DesCartes and Woolf's writings for.</small>
+      </div>
+      <button type="submit" class="btn btn-light">Search!</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

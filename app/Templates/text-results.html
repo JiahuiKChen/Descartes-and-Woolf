@@ -8,12 +8,20 @@
       <div class="panel panel-default">
         <div class="panel-heading">Results from Descartes' Writings:</div>
         <div class="pre-scrollable">
-          {{ descartes_result }}
+          {% for s in descartes_result %}
+              <p>{{ s }}</p>
+              <br>
+          {% endfor %}
         </div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Results from Woolf's Writings:</div>
-        <div class="pre-scrollable">{{ woolf_result }}</div>
+        <div class="pre-scrollable">
+          {% for s in woolf_result %}
+              <p>{{ s }}</p>
+              <br>
+          {% endfor %}
+        </div>
       </div>
   </div>
 </div>
