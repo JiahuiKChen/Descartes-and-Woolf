@@ -43,6 +43,10 @@ def text_search(phrase):
     else:
         woolf_result = get_author_sentences(txt_input, woolf_wordsets, woolf_sentences)
         descartes_result = get_author_sentences(txt_input, descartes_wordsets, descartes_sentences)
+    if len(woolf_result) == 0:
+        woolf_result = "None of Woolf's writing contains this phrase..."
+    if len(descartes_result) == 0:
+        descartes_result = "None of Descartes' writing contains this phrase..."
     return descartes_result, woolf_result
 
 
@@ -56,8 +60,9 @@ def main_page():
 def get_results():
     search_input = request.form['text-input']
     descartes_result, woolf_result = text_search(search_input)
-    return descartes_result
-    # return render_template('text-results.html')
+    # return descartes_result
+    return render_template('text-results.html', descartes_result=descartes_result,
+        woolf_result=woolf_result)
 
 # UNCOMMENT FOR LOCAL RUN ONLY
 if __name__ == '__main__':

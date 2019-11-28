@@ -2,14 +2,18 @@
 
 {% extends "base.html" %}
 {% block body %}
-<div class="jumbotron">
-  <h2>Search The Text of DesCartes and Woolf</h2>
-  <p class="lead">A work in progress...</p>
-  <div class="container">
-    <div class="panel panel-primary">
-      <div class="panel-heading">Results from Descartes's and Woolf's Writings:</div>
-      <div class="panel-body" style="min-height: 50; max-height: 75; overflow-y: scroll;">The results will go here...</div>
-    </div>
+<h2>Search The Text of DesCartes and Woolf</h2>
+<p class="lead">A work in progress...</p>
+<div class="container">
+  <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">Results from Descartes' Writings:</div>
+        <div class="panel-body" style="min-height: 1000; max-height: 1000; overflow-y: scroll;">{{ descartes_result }}</div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Results from Woolf's Writings:</div>
+        <div class="panel-body" style="min-height: 1000; max-height: 1000; overflow-y: scroll;">{{ woolf_result }}</div>
+      </div>
   </div>
 </div>
 {% endblock %}
