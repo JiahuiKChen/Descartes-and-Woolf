@@ -1,20 +1,15 @@
 <!-- text-search.html-->
 
 {% extends "base.html" %}
-{% block title %}Search The Text of DesCartes and Woolf{% endblock %}
 {% block body %}
 <div class="jumbotron">
   <h2>Search The Text of DesCartes and Woolf</h2>
   <p class="lead">A work in progress...</p>
-  <div class="container"> 
-    <form method="POST">
-      <div class="form-group">
-        <label for="text-input">Word or Phrase to Search For:</label>
-        <input type="text" class="form-control" id="text-input" aria-describedby="text-help" placeholder="Enter Text!">
-        <small id="text-help" class="form-text text-muted">Enter a word or phrase to search through DesCartes and Woolf's writings for.</small>
-      </div>
-      <button type="submit" class="btn btn-light">Search!</button>
-    </form>
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Results from Descartes's and Woolf's Writings:</div>
+      <div class="panel-body" style="min-height: 50; max-height: 75; overflow-y: scroll;">The results will go here...</div>
+    </div>
   </div>
 </div>
 {% endblock %}
