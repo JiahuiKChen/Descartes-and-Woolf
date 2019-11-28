@@ -28,9 +28,6 @@ def get_author_sentences(phrase, wordsets, sentences):
 
     for s_id in found_ids:
         found_sentences.append(sentences[s_id])
-    # result_str = "\n\n".join(found_sentences)
-    # result_str = "<br><br>".join(found_sentences)
-    # return result_str
     return found_sentences
 
 # Searches for an input phrase, returns sentences found from each author (as one big string each)
@@ -51,6 +48,7 @@ def text_search(phrase):
     return descartes_result, woolf_result
 
 
+# HOME/SEARCH PAGE #############################################################
 @app.route('/')
 def main_page():
     return render_template('text-search.html')
@@ -63,8 +61,16 @@ def get_results():
     if not (isinstance(descartes_result, list) and isinstance(woolf_result, list)):
         return render_template('text-search-error.html', issue=descartes_result)
     return render_template('text-results.html', descartes_result=descartes_result,
-        woolf_result=woolf_result)
+        woolf_result=woolf_result, search_input=search_input)
 
-# # UNCOMMENT FOR LOCAL RUN ONLY
-# if __name__ == '__main__':
-#     app.run(host='127.0.0.1', port=8080, debug=True)
+
+# TEXTBOTS PAGE ################################################################
+@app.route('/textbots')
+def textbots_page():
+    return render_template('text-bots.html')
+
+
+
+# UNCOMMENT FOR LOCAL RUN ONLY
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True)

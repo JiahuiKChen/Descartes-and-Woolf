@@ -1,0 +1,23 @@
+<!-- text-bots.html-->
+
+{% extends "base.html" %}
+{% block body %}
+<div class="jumbotron">
+  <h1 class="display-4">DescartesBot and WoolfBot: Text generators in the style of Descartes and Woolf!</h1>
+  <p class="h4">Descartes and Woolf both wrote about introspective experiences,</p>
+  <p class="h4">but their very different writing style, subject matter, and presentations</p>
+  <p class="h4">result in drastically different expressions of introspection.</p>
+  <h4><small class="text-muted">Use this page to generate original phrases in the style of Descartes and Woolf!</small></h4>
+  <div class="container">
+    <hr class="my-4">
+    <form method="POST">
+      <div class="form-group">
+        <label for="text-input">Word or Phrase to Generate Text With:</label>
+        <input type="text" class="form-control" name="text-input" aria-describedby="text-help" placeholder="Enter Text!">
+        <small id="text-help" class="form-text text-muted">Enter a word or phrase for DescartesBot and WoolfBot to include in their phrases.</small>
+      </div>
+      <button type="submit" class="btn btn-light">Search</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -2,7 +2,12 @@
 
 {% extends "base.html" %}
 {% block body %}
-<h2>Search Results from Descartes and Woolf's Works:</h2>
+<h2>
+  Search Results from Descartes and Woolf's Works:
+  <br>
+  <small class="text-muted">Search Query: {{ search_input }}</small>
+</h2>
+
 <div class="container">
   <div class="row">
       <div class="panel panel-default">
