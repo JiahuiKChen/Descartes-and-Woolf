@@ -57,7 +57,7 @@ def main_page():
 
 # Method that gets input from user and returns strings found from text
 @app.route('/', methods=['POST'])
-def get_results():  
+def get_results():
     search_input = request.form['text-input']
     descartes_result, woolf_result = text_search(search_input)
     if not (isinstance(descartes_result, list) and isinstance(woolf_result, list)):
@@ -65,6 +65,6 @@ def get_results():
     return render_template('text-results.html', descartes_result=descartes_result,
         woolf_result=woolf_result)
 
-# UNCOMMENT FOR LOCAL RUN ONLY
+# UNCOMMENT FOR LOCAL RUN ONLY    
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
