@@ -65,6 +65,6 @@ def get_results():
     return render_template('text-results.html', descartes_result=descartes_result,
         woolf_result=woolf_result)
 
-# UNCOMMENT FOR LOCAL RUN ONLY    
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+# # UNCOMMENT FOR LOCAL RUN ONLY
+# if __name__ == '__main__':
+#     app.run(host='127.0.0.1', port=8080, debug=True)
