@@ -68,10 +68,10 @@ def bot_talk(phrase):
         d_sen = descartes_bot.make_sentence()
         w_sen = woolf_bot.make_sentence()
         # Only include in generated results if sentence has (any word in) given phrase
-        for word in words:
-            if word in d_sen:
+        for w in words:
+            if (' ' + w + ' ') in (' ' + d_sen + ' '):
                 descartes_bot_res.append(d_sen)
-            if word in w_sen:
+            if (' ' + w + ' ') in (' ' + w_sen + ' '):
                 woolf_bot_res.append(w_sen)
     return descartes_bot_res, woolf_bot_res
 
