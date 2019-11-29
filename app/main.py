@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 import pickle
+import json
+import markovify
 
 app = Flask(__name__)
 
@@ -18,7 +20,16 @@ with open(text_dicts_dir + "Descartes-Sentences.pickle", 'rb') as d_file:
 with open(text_dicts_dir + "Descartes-WordSets.pickle", 'rb') as d_file:
     descartes_wordsets = pickle.load(d_file)
 
+# Loading in Markov Chain models for text bots
+with open('TextGeneratorModels/descartes-bot.json') as json_file:
+    d_model_json = json.load(json_file)
+descartes_bot = markovify.Text.from_json(d_model_json)
 
+with open('TextGeneratorModels/woolf-bot.json') as json_file:
+    w_model_json = json.load(json_file)
+woolf_bot = markovify.Text.from_json(w_model_json)
+
+# Gets sentences containing the given phrase from the given wordsets and sentences
 def get_author_sentences(phrase, wordsets, sentences):
     found_ids = []
     found_sentences = []
@@ -69,7 +80,10 @@ def get_results():
 def textbots_page():
     return render_template('text-bots.html')
 
+# @app.route('/textbots', methods=['POST'])
+# def get_results():
+
 
 # UNCOMMENT FOR LOCAL RUN ONLY
-# if __name__ == '__main__':
-#     app.run(host='127.0.0.1', port=8080, debug=True)
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True)
