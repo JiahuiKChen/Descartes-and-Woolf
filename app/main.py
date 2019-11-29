@@ -81,7 +81,7 @@ def bot_talk(phrase):
 def main_page():
     return render_template('text-search.html')
 
-# Method that gets input from user and returns strings found from text
+# Gets input from user and returns strings found from text
 @app.route('/', methods=['POST'])
 def get_results():
     search_input = request.form['text-input']
@@ -97,12 +97,20 @@ def get_results():
 def textbots_page():
     return render_template('text-bots.html')
 
+# Gets input from user and returns generated text
 @app.route('/textbots', methods=['POST'])
 def gen_text():
     gen_input = request.form['text-input']
     descartes_bot_res, woolf_bot_res = bot_talk(gen_input)
     return render_template('text-bots-results.html', descartes_result=descartes_bot_res,
         woolf_result=woolf_bot_res, gen_input=gen_input)
+
+
+# ABOUT PAGE ###################################################################
+@app.route('/about')
+def about_page():
+    return render_template('about.html')
+
 
 # UNCOMMENT FOR LOCAL RUN ONLY
 # if __name__ == '__main__':
