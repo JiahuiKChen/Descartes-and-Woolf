@@ -58,6 +58,23 @@ def text_search(phrase):
             descartes_result = ["None of Descartes' writing contains this phrase..."]
     return descartes_result, woolf_result
 
+# Generate sentences from the Markov Chain models that contain the given phrase
+def bot_talk(phrase):
+    words = phrase.split()
+    descartes_bot_res = []
+    woolf_bot_res = []
+    # Creates 100 sentences (randomly) for both models
+    for i in range(100):
+        d_sen = descartes_bot.make_sentence()
+        w_sen = woolf_bot.make_sentence()
+        # Only include in generated results if sentence has (any word in) given phrase
+        for word in words:
+            if word in d_sen:
+                descartes_bot_res.append(d_sen)
+            if word in w_sen:
+                woolf_bot_res.append(w_sen)
+    return descartes_bot_res, woolf_bot_res
+
 
 # HOME/SEARCH PAGE #############################################################
 @app.route('/')
@@ -80,10 +97,13 @@ def get_results():
 def textbots_page():
     return render_template('text-bots.html')
 
-# @app.route('/textbots', methods=['POST'])
-# def get_results():
-
+@app.route('/textbots', methods=['POST'])
+def gen_text():
+    gen_input = request.form['text-input']
+    descartes_bot_res, woolf_bot_res = bot_talk(gen_input)
+    return render_template('text-bots-results.html', descartes_result=descartes_bot_res,
+        woolf_result=woolf_bot_res, gen_input=gen_input)
 
 # UNCOMMENT FOR LOCAL RUN ONLY
-if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+# if __name__ == '__main__':
+#     app.run(host='127.0.0.1', port=8080, debug=True)

@@ -1,0 +1,41 @@
+<!-- text-bot-results.html-->
+
+{% extends "base.html" %}
+{% block body %}
+<h2>
+  DescartesBot and WoolfBot Generated Writing:
+  <br>
+  <small class="text-muted">Input You Gave the Bots to Include in Their Writing: {{ gen_input }}</small>
+</h2>
+
+<div class="container">
+  <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">DescartesBot Says:</div>
+        <div class="pre-scrollable">
+          {% if descartes_result|length > 1 %}
+            {% for s in descartes_result %}
+                <p>{{ s }}</p>
+                <br>
+            {% endfor %}
+          {% else %}
+            <p>DescartesBot had nothing to say that included your given input phrase or word...</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">WoolfBot Says:</div>
+        <div class="pre-scrollable">
+          {% if woolf_result|length > 1 %}
+            {% for s in woolf_result %}
+                <p>{{ s }}</p>
+                <br>
+            {% endfor %}
+          {% else %}
+            <p>WoolfBot had nothing to say that included your given input phrase or word...</p>
+          {% endif %}
+        </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
