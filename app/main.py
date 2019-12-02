@@ -34,8 +34,10 @@ def get_author_sentences(phrase, wordsets, sentences):
     found_ids = []
     found_sentences = []
     for s_id in wordsets:
-        if phrase in wordsets[s_id]:
-            found_ids.append(s_id)
+        words = phrase.split(' ')
+        for word in words:
+            if word in wordsets[s_id]:
+                found_ids.append(s_id)
 
     for s_id in found_ids:
         found_sentences.append(sentences[s_id])
