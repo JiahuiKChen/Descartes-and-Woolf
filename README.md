@@ -5,4 +5,4 @@ Website information on functionality is [here](https://descartes-and-woolf.appsp
 
 This website was created as an [Unessay](http://people.uleth.ca/~daniel.odonnell/Teaching/the-unessay#about) project, for [Professor Elizabeth Callaway](http://www.elizabethcallaway.net/)'s class.  
 
-More details on the literary argument behind the website are in the Artist's Statement.
+More details on the literary argument behind the website are in the [Artist's Statement](https://github.com/JiahuiKChen/Descartes-and-Woolf/blob/master/Artist's%20Statement.pdf).
